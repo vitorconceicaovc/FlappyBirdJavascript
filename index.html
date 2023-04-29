@@ -9,6 +9,7 @@
 <body>
 
     <canvas id="game-canvas" width="320" height="480"></canvas>
+    <small><a href="https://www.vitorconceicao.com/" target="_blank">© Developed by Vítor Conceição</a></small>
     <style>
         body {
             min-height: 100vh;
@@ -17,11 +18,19 @@
             align-items: center;
             margin: 0;
             padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
         }
         canvas {
             border: 1px solid #000;
             display: block;
             margin: 0 auto;
+        }
+        a {
+            text-decoration: none;
         }
     </style>
 
