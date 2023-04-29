@@ -85,16 +85,74 @@ const flappyBird = {
     }
 }
 
-function loop() {
+const mensagemGetReady = {
+  spriteX: 134,
+  spriteY: 0,
+  largura: 174,
+  altura: 152,
+  x: (canvas.width / 2) - 174 / 2,
+  y: 50,
+  desenha() {
+    contexto.drawImage(
+      sprites,
+      mensagemGetReady.spriteX, mensagemGetReady.spriteY, // Sprite X, Sprite Y
+      mensagemGetReady.largura, mensagemGetReady.altura, // Tamanho do recorte na sprite
+      mensagemGetReady.x, mensagemGetReady.y,
+      mensagemGetReady.largura, mensagemGetReady.altura,
+    );
+  }
+}
 
-    
+//telas
+
+let telaAtiva = {}
+function mudaParaTela(novaTela) {
+  telaAtiva = novaTela
+}
+
+const Telas = {
+  INICIO: {
+    desenha() {
+      planoDeFundo.desenha()
+      chao.desenha()
+      flappyBird.desenha()
+      mensagemGetReady.desenha()
+    },
+    click() {
+      mudaParaTela(Telas.JOGO)
+    },
+    atualiza() {
+
+    }
+
+  }
+}
+
+Telas.JOGO = {
+  desenha() {
     planoDeFundo.desenha()
     chao.desenha()
     flappyBird.desenha()
+  },
+  atualiza() {
     flappyBird.atualiza()
+  }
+}
 
-    requestAnimationFrame(loop)
+function loop() {
+
+  telaAtiva.desenha()
+  telaAtiva.atualiza()
+
+  requestAnimationFrame(loop)
 
 }
 
+window.addEventListener('click', function() {
+  if (telaAtiva.click) {
+    telaAtiva.click()
+  }
+})
+
+mudaParaTela(Telas.INICIO)
 loop()
