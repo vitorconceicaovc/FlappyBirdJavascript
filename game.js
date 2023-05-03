@@ -1,5 +1,10 @@
 
 let name = prompt("User Name:");
+
+while (!/^[a-zA-Z]+$/.test(name)) {
+  name = prompt("Please enter a valid name (letters only):");
+}
+
 document.querySelector(".name").innerHTML = !name ? "Guest" : name
 
 let frames = 0
