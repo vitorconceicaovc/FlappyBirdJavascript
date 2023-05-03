@@ -6,8 +6,17 @@ let Userscore = 0
 
 let frames = 0
 
+//audio
 const som_HIT = new Audio()
 som_HIT.src = './efeitos/hit.wav'
+
+const som_Pulo = new Audio()
+som_Pulo.src = './efeitos/pulo.wav'
+
+const som_Caiu = new Audio()
+som_Caiu.src = './efeitos/caiu.wav'
+
+
 
 const sprites = new Image()
 sprites.src = './sprites.png'
@@ -120,7 +129,10 @@ function criaFlappyBird() {
     y: 50,
     pulo: 4.6,
     pula() {
+
+      som_Pulo.play()
       flappyBird.velocidade = -flappyBird.pulo
+      
     },
     gravidade: 0.25,
     velocidade: 0,
@@ -129,9 +141,11 @@ function criaFlappyBird() {
       if (fazColisao(flappyBird, globais.chao)) {
         som_HIT.play()
 
+
         
         mudaParaTela(Telas.GAME_OVER)
         
+        som_Caiu.play()
         
         return
       }
@@ -308,6 +322,7 @@ function criaCanos() {
         if (canos.temColisaoComOFlappyBird(par)) {
           som_HIT.play()
           mudaParaTela(Telas.GAME_OVER)
+          som_Caiu.play()
         }
 
         if(par.x + canos.largura <= 0) {
@@ -414,6 +429,7 @@ Telas.JOGO = {
 Telas.GAME_OVER = {
   desenha() {
     mensagemGameOver.desenha()
+    
   },
   atualiza() {
 
@@ -421,6 +437,8 @@ Telas.GAME_OVER = {
   click() {
     mudaParaTela(Telas.INICIO)
   }
+
+  
 }
 
 function loop() {

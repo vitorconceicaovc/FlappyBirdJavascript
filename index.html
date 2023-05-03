@@ -11,67 +11,32 @@
 </head>
 <body>
 
-    <div class="game">
-        <canvas id="game-canvas" width="320" height="480"></canvas>
-        <small>© Developed by <a href="https://www.vitorconceicao.com/" target="_blank">Vítor Conceição</a></small>
-    </div>
+    <section>   
 
-    <div class="scorePannel">
+        <div class="game">
+            <canvas id="game-canvas" width="320" height="480"></canvas>
+            <small>© Developed by <a href="https://www.vitorconceicao.com/" target="_blank">Vítor Conceição</a></small>
+        </div>
+    
+        <div class="scorePannel">
+    
+            <h4>Top 10</h4>
+    
+            <article>
+                <p class="score" >--</p>
+                <p class="name" >No Name</p>
+            </article>
+            
+        </div>
+    
 
-        <h4>Top 10</h4>
-
-        <article>
-            <p class="score" >--</p>
-            <p class="name" >No Name</p>
-        </article>
-        <article>
-            <p class="score" >--</p>
-            <p class="name" >No Name</p>
-        </article>
-        <article>
-            <p class="score" >--</p>
-            <p class="name" >No Name</p>
-        </article>
-        <article>
-            <p class="score" >--</p>
-            <p class="name" >No Name</p>
-        </article>
-        <article>
-            <p class="score" >--</p>
-            <p class="name" >No Name</p>
-        </article>
-        <article>
-            <p class="score" >--</p>
-            <p class="name" >No Name</p>
-        </article>
-        <article>
-            <p class="score" >--</p>
-            <p class="name" >No Name</p>
-        </article>
-        <article>
-            <p class="score" >--</p>
-            <p class="name" >No Name</p>
-        </article>
-        <article>
-            <p class="score" >--</p>
-            <p class="name" >No Name</p>
-        </article>
-        <article>
-            <p class="score" >--</p>
-            <p class="name" >No Name</p>
-        </article>
-        
-        
-        
-    </div>
+    </section>
 
     
+    
     <style>
-        body {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        section {
+            
             margin: 0;
             padding: 0;
             display: flex;
@@ -116,6 +81,12 @@
             margin-left: 15px;
             
             padding: 10px;
+        }
+
+        @media screen and (max-width: 700px){
+            section {
+                flex-direction: column;
+            }
         }
         
     </style>
