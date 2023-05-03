@@ -479,5 +479,13 @@ window.addEventListener('click', function() {
   }
 })
 
+window.addEventListener('keydown', function() {
+  if(event.code === "Space" && telaAtiva.click) {
+    telaAtiva.click()
+  }
+})
+
+
+
 mudaParaTela(Telas.INICIO)
 loop()
