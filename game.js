@@ -1,8 +1,8 @@
 
 let name = prompt("User Name:");
 
-while (!/^[a-zA-Z]+$/.test(name)) {
-  name = prompt("Please enter a valid name (letters only):");
+while (!/^[a-zA-Z]+$/.test(name) || name.length > 10) {
+  name = prompt("User Name (only letters and max 10 characters):");
 }
 
 document.querySelector(".name").innerHTML = !name ? "Guest" : name
