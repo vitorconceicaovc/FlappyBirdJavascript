@@ -1,3 +1,9 @@
+
+let PlacarScore = 0
+let Userscore = 0
+let name = prompt("User Name:")
+
+
 let frames = 0
 
 const som_HIT = new Audio()
@@ -8,6 +14,19 @@ sprites.src = './sprites.png'
 
 const canvas = document.querySelector('canvas')
 const contexto = canvas.getContext('2d')
+
+
+
+function addScore() {
+  if (PlacarScore > Userscore) {
+    Userscore = PlacarScore
+  }
+}
+
+function updatePlacarScore() {
+  document.querySelector('.score').innerHTML = Userscore.toString()
+  document.querySelector('.name').innerHTML = name
+}
 
 // [Plano de Fundo]
 const planoDeFundo = {
@@ -308,10 +327,10 @@ function criaPlacar() {
   const placar = {
     pontuacao: 0,
     desenha() {
-      contexto.font = '21px "VT323"'
-      contexto.textAlign = 'right'
+      contexto.font = '30px "VT323"'
+      contexto.textAlign = 'center'
       contexto.fillStyle = 'white'
-      contexto.fillText(`Score: ${placar.pontuacao}`, canvas.width - 10, 35)
+      contexto.fillText(`${placar.pontuacao}`, canvas.width / 2, 50)
     },
     atualiza() {
 
@@ -320,6 +339,11 @@ function criaPlacar() {
 
       if(passouOIntervalo) {
         placar.pontuacao += 1
+
+        if (placar.pontuacao > PlacarScore) {
+          PlacarScore = placar.pontuacao
+        }
+
       }
 
     }
@@ -406,6 +430,9 @@ function loop() {
 
   frames += 1
   requestAnimationFrame(loop)
+
+  addScore()
+  updatePlacarScore()
 
 }
 

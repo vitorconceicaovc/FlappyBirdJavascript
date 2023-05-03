@@ -11,8 +11,19 @@
 </head>
 <body>
 
-    <canvas id="game-canvas" width="320" height="480"></canvas>
-    <small>© Developed by <a href="https://www.vitorconceicao.com/" target="_blank">Vítor Conceição</a></small>
+    <div class="game">
+        <canvas id="game-canvas" width="320" height="480"></canvas>
+        <small>© Developed by <a href="https://www.vitorconceicao.com/" target="_blank">Vítor Conceição</a></small>
+    </div>
+
+    <div class="scorePannel">
+        <article>
+            <p class="score" >--</p>
+            <p class="name" >No Name</p>
+        </article>
+    </div>
+
+    
     <style>
         body {
             min-height: 100vh;
@@ -24,7 +35,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
+            flex-direction: row;
             gap: 5px;
         }
         canvas {
@@ -34,6 +45,15 @@
         }
         a {
             text-decoration: none;
+        }
+        .scorePannel {
+            flex: initial;
+        }
+        article {
+            margin-left: 10px;
+            display: flex;
+            gap: 10px;
+            
         }
     </style>
 
