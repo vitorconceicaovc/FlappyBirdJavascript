@@ -1,7 +1,7 @@
 
 let PlacarScore = 0
 let Userscore = 0
-let name = prompt("User Name:")
+//let name = prompt("User Name:")
 
 
 let frames = 0
@@ -25,7 +25,7 @@ function addScore() {
 
 function updatePlacarScore() {
   document.querySelector('.score').innerHTML = Userscore.toString()
-  document.querySelector('.name').innerHTML = name
+  document.querySelector('.name').innerHTML = "name"
 }
 
 // [Plano de Fundo]
