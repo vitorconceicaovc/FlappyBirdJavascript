@@ -1,6 +1,4 @@
 
-let PlacarScore = 0
-let Userscore = 0
 let name = prompt("User Name:");
 document.querySelector(".name").innerHTML = !name ? "Guest" : name
 
@@ -26,16 +24,21 @@ sprites.src = './sprites.png'
 const canvas = document.querySelector('canvas')
 const contexto = canvas.getContext('2d')
 
-
+let pontuacao = 0
+let FinalScore = 0
 
 function addScore() {
-  if (PlacarScore > Userscore) {
-    Userscore = PlacarScore
+  if (pontuacao > FinalScore) {
+    FinalScore = pontuacao
   }
 }
 
 function updatePlacarScore() {
-  document.querySelector('.score').innerHTML = Userscore.toString()
+  document.querySelector('.score').innerHTML = FinalScore.toString()
+}
+
+function resetScore() {
+  pontuacao = 0
 }
 
 // [Plano de Fundo]
@@ -142,7 +145,7 @@ function criaFlappyBird() {
       if (fazColisao(flappyBird, globais.chao)) {
         som_HIT.play()
 
-
+        resetScore()
         
         mudaParaTela(Telas.GAME_OVER)
         
@@ -329,12 +332,16 @@ function criaCanos() {
           som_HIT.play()
           mudaParaTela(Telas.GAME_OVER)
           som_Caiu.play()
+          resetScore()
         }
 
         if(par.x + canos.largura <= 0) {
           canos.pares.shift()
 
           som_Ponto.play()
+          
+          pontuacao += 1
+
         }
       })
 
@@ -345,21 +352,24 @@ function criaCanos() {
 
 }
 
+
+
 function criaPlacar() {
 
   const placar = {
-    pontuacao: 0,
+    //pontuacao: 0,
     desenha() {
       contexto.font = '30px "VT323"'
       contexto.textAlign = 'center'
       contexto.fillStyle = 'white'
-      contexto.fillText(`${placar.pontuacao}`, canvas.width / 2, 50)
+      contexto.fillText(`${pontuacao}`, canvas.width / 2, 50)
     },
     atualiza() {
 
       const intervaloDeFrames = 100
       const passouOIntervalo = frames % intervaloDeFrames === 0
 
+      /*
       if(passouOIntervalo) {
         placar.pontuacao += 1
 
@@ -368,6 +378,7 @@ function criaPlacar() {
         }
 
       }
+      */
 
     }
   }
