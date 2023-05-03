@@ -1,8 +1,8 @@
 
 let PlacarScore = 0
 let Userscore = 0
-let name = prompt("User Name:")
-
+let name = prompt("User Name:");
+document.querySelector(".name").innerHTML = !name ? "Guest" : name
 
 let frames = 0
 
@@ -16,6 +16,8 @@ som_Pulo.src = './efeitos/pulo.wav'
 const som_Caiu = new Audio()
 som_Caiu.src = './efeitos/caiu.wav'
 
+const som_Ponto = new Audio()
+som_Ponto.src = './efeitos/ponto.wav'
 
 
 const sprites = new Image()
@@ -34,7 +36,6 @@ function addScore() {
 
 function updatePlacarScore() {
   document.querySelector('.score').innerHTML = Userscore.toString()
-  document.querySelector('.name').innerHTML = name
 }
 
 // [Plano de Fundo]
@@ -310,6 +311,9 @@ function criaCanos() {
       const passou100Frames = frames % 100 === 0
 
       if(passou100Frames) {
+
+        //som_Ponto.play()
+
         canos.pares.push({
           x: canvas.width,
           y: -150 * (Math.random() + 1)
@@ -319,6 +323,8 @@ function criaCanos() {
       canos.pares.forEach(function(par) {
         par.x = par.x - 2
 
+        
+
         if (canos.temColisaoComOFlappyBird(par)) {
           som_HIT.play()
           mudaParaTela(Telas.GAME_OVER)
@@ -327,6 +333,8 @@ function criaCanos() {
 
         if(par.x + canos.largura <= 0) {
           canos.pares.shift()
+
+          som_Ponto.play()
         }
       })
 
