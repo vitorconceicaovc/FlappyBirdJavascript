@@ -14,7 +14,8 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const playersCollection = collection(db, "players");
-const playersQuery = query(playersCollection, orderBy("score"), orderBy("name"), limit(10));
+const playersQuery = query(playersCollection, orderBy("score", "desc"), orderBy("name"), limit(10));
+
 
 getDocs(playersQuery)
 .then((querySnapshot) => {
@@ -36,3 +37,8 @@ getDocs(playersQuery)
 .catch((error) => {
     console.log("Error getting players:", error);
 });
+
+var lastScore = document.querySelector(".score")
+var playerScore = parseInt(lastScore)
+var playerName = document.querySelector(".name")
+
