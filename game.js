@@ -1,7 +1,7 @@
 
 let name = prompt("User Name:");
 
-while (!/^[a-zA-Z]+$/.test(name) || name.length > 10) {
+while (!/^[a-zA-Z]+$/.test(name) ) {
   name = prompt("User Name (only letters and max 10 characters):");
 }
 
