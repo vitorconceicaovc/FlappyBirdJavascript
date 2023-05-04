@@ -21,12 +21,17 @@
     
         <div class="scorePannel">
     
-            <h4>Top 10</h4>
+            <h4>My Score</h4>
     
             <article>
                 <p class="score" >--</p>
                 <p class="name" >--</p>
             </article>
+
+            <h4>Top 10</h4>
+
+            <div id="playersList"></div>
+
             
         </div>
     
@@ -95,6 +100,11 @@
             width: 320px;
             height: 480px;
         }
+        #playersList {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
        
 
         @media screen and (max-width: 700px){
@@ -110,6 +120,7 @@
     </style>
 
     <script src="./game.js" ></script>
+    <script type="module" src="./firebase.js" ></script>
 
 </body>
 </html>
