@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <small>© Developed by <a href="https://www.vitorconceicao.com/" target="_blank">Vítor Conceição</a></small>
+    <footer><small>© Developed by <a href="https://www.vitorconceicao.com/" target="_blank">Vítor Conceição</a></small></footer>
     <section>   
         
         <div class="game">
@@ -36,6 +36,16 @@
     
     
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'VT323';
+        }
+        footer {
+            background-color: #00fce3;
+            padding: 5px 25px;
+            margin-bottom: 10px;
+        }
         section {
             
             margin: 0;
@@ -75,18 +85,25 @@
         }
         .scorePannel {
             display: flex;
-            align-items: left;
+            align-items: center;
             justify-content: center;
             flex-direction: column;
             gap: 10px;
-            margin-left: 15px;
-            
-            padding: 10px;
+            margin-left: 5px;
+            background-color: #70c5ce;
+            border: 1px solid black;
+            width: 320px;
+            height: 480px;
         }
+       
 
         @media screen and (max-width: 700px){
             section {
                 flex-direction: column;
+            }
+            .scorePannel {
+                margin-left: 0;
+                margin-bottom: 50px;
             }
         }
         
